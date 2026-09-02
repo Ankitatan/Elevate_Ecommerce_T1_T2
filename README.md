@@ -263,4 +263,258 @@ Task_02_Data_Insertion_Null_Handling/
 This task provided practical experience with **DML operations and NULL handling** in MySQL. It demonstrated how to populate, modify, remove, and manage database records while maintaining data consistency and referential integrity.
 
 
+# Task 3: Writing Basic SELECT Queries
+
+## 🎯 Objective
+
+The objective of this task is to understand how to retrieve and filter data from one or more database tables using basic SQL `SELECT` queries.
+
+## 🛠️ Tools Used
+
+* **MySQL Workbench**
+* **DB Browser for SQLite** *(optional)*
+
+## 📌 Topics Covered
+
+This task focuses on the fundamental SQL commands and clauses used for data retrieval:
+
+* `SELECT *` – Retrieve all columns from a table
+* Selecting specific columns
+* `WHERE` – Filter records based on conditions
+* `AND` / `OR` – Combine multiple conditions
+* `LIKE` – Search for matching text patterns
+* `BETWEEN` – Filter values within a specified range
+* `ORDER BY` – Sort query results
+* `LIMIT` – Restrict the number of returned rows
+* `DISTINCT` – Retrieve unique values
+* Aliasing using `AS`
+* `IN` – Match values against a list of options
+
+## 🔍 SQL Concepts Practiced
+
+### 1. SELECT All Columns
+
+```sql
+SELECT *
+FROM employees;
+```
+
+### 2. SELECT Specific Columns
+
+```sql
+SELECT employee_id, name, department
+FROM employees;
+```
+
+### 3. Filtering with WHERE
+
+```sql
+SELECT *
+FROM employees
+WHERE department = 'IT';
+```
+
+### 4. Using AND / OR
+
+```sql
+SELECT *
+FROM employees
+WHERE department = 'IT'
+AND salary > 40000;
+```
+
+```sql
+SELECT *
+FROM employees
+WHERE department = 'IT'
+OR department = 'HR';
+```
+
+### 5. Pattern Matching with LIKE
+
+```sql
+SELECT *
+FROM employees
+WHERE name LIKE '%an%';
+```
+
+`LIKE '%value%'` finds records where the specified value appears **anywhere within the text**.
+
+### 6. Using BETWEEN
+
+```sql
+SELECT *
+FROM employees
+WHERE salary BETWEEN 30000 AND 60000;
+```
+
+`BETWEEN` is used to filter values within a specified range.
+
+### 7. Sorting with ORDER BY
+
+```sql
+SELECT *
+FROM employees
+ORDER BY salary ASC;
+```
+
+Descending order:
+
+```sql
+SELECT *
+FROM employees
+ORDER BY salary DESC;
+```
+
+### 8. Limiting Results
+
+```sql
+SELECT *
+FROM employees
+LIMIT 5;
+```
+
+This returns only the first 5 rows from the query result.
+
+### 9. Using DISTINCT
+
+```sql
+SELECT DISTINCT department
+FROM employees;
+```
+
+`DISTINCT` removes duplicate values from the result.
+
+### 10. Aliasing
+
+```sql
+SELECT name AS employee_name,
+       salary AS monthly_salary
+FROM employees;
+```
+
+Aliasing gives a column or table a temporary, more readable name.
+
+## 📂 Deliverables
+
+The repository contains:
+
+```text
+Task-3-Basic-SELECT-Queries/
+│
+├── task3_select_queries.sql
+└── README.md
+```
+
+### SQL Script Includes
+
+* Basic `SELECT` queries
+* `SELECT *`
+* Specific column selection
+* `WHERE`
+* `AND`
+* `OR`
+* `LIKE`
+* `BETWEEN`
+* `IN`
+* `ORDER BY`
+* `LIMIT`
+* `DISTINCT`
+* Column aliasing
+
+## 💡 Interview Questions & Answers
+
+### 1. What does `SELECT *` do?
+
+It retrieves **all columns** from the specified table.
+
+### 2. How do you filter rows?
+
+Using the `WHERE` clause.
+
+```sql
+SELECT *
+FROM employees
+WHERE salary > 50000;
+```
+
+### 3. What is `LIKE '%value%'`?
+
+It searches for rows where `value` occurs **anywhere in a text column**.
+
+### 4. What is `BETWEEN` used for?
+
+It filters values within a specified range, including the boundary values.
+
+```sql
+WHERE salary BETWEEN 30000 AND 50000
+```
+
+### 5. How do you limit output rows?
+
+Use the `LIMIT` clause.
+
+```sql
+SELECT *
+FROM employees
+LIMIT 10;
+```
+
+### 6. Difference between `=` and `IN`
+
+`=` compares a value with **one specific value**:
+
+```sql
+WHERE department = 'IT'
+```
+
+`IN` compares a value against **multiple possible values**:
+
+```sql
+WHERE department IN ('IT', 'HR', 'Finance')
+```
+
+### 7. How do you sort in descending order?
+
+Use:
+
+```sql
+ORDER BY column_name DESC;
+```
+
+### 8. What is aliasing?
+
+Aliasing assigns a temporary name to a column or table using `AS`.
+
+```sql
+SELECT salary AS monthly_salary
+FROM employees;
+```
+
+### 9. Explain `DISTINCT`.
+
+`DISTINCT` returns only unique values and removes duplicates from the query result.
+
+### 10. What is the default sort order?
+
+The default sort order of `ORDER BY` is **ascending (`ASC`)**.
+
+## ✅ Outcome
+
+After completing this task, I gained a clear understanding of how to:
+
+* Retrieve data using `SELECT`
+* Select all or specific columns
+* Filter records using different conditions
+* Search text using `LIKE`
+* Filter ranges using `BETWEEN`
+* Match multiple values using `IN`
+* Sort data using `ORDER BY`
+* Restrict results using `LIMIT`
+* Remove duplicates using `DISTINCT`
+* Improve query readability using aliases
+
+This task establishes the foundation for more advanced SQL concepts such as **JOINs, GROUP BY, aggregate functions, subqueries, and database analysis**.
+
+
 **Author:** Ankita Taneja
