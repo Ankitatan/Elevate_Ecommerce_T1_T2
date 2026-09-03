@@ -516,5 +516,155 @@ After completing this task, I gained a clear understanding of how to:
 
 This task establishes the foundation for more advanced SQL concepts such as **JOINs, GROUP BY, aggregate functions, subqueries, and database analysis**.
 
+## Task 4: Aggregate Functions and Grouping
+
+### Objective
+
+Use SQL aggregate functions and grouping techniques to summarize, analyze, and extract meaningful insights from tabular data.
+
+### Tools Used
+
+* MySQL Workbench
+* DB Browser for SQLite
+
+### Concepts Covered
+
+* Aggregate Functions
+* `COUNT()`
+* `SUM()`
+* `AVG()`
+* `MAX()`
+* `MIN()`
+* `ROUND()`
+* `GROUP BY`
+* `HAVING`
+* `COUNT(DISTINCT)`
+* Multiple-column grouping
+* `WHERE` vs `HAVING`
+
+### SQL Queries
+
+#### 1. Count Total Employees
+
+```sql
+SELECT COUNT(*) AS total_employees
+FROM employees;
+```
+
+#### 2. Count Employees by Department
+
+```sql
+SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department;
+```
+
+#### 3. Calculate Average Salary by Department
+
+```sql
+SELECT department,
+       ROUND(AVG(salary), 2) AS average_salary
+FROM employees
+GROUP BY department;
+```
+
+#### 4. Calculate Total Salary by Department
+
+```sql
+SELECT department,
+       SUM(salary) AS total_salary
+FROM employees
+GROUP BY department;
+```
+
+#### 5. Filter Groups Using HAVING
+
+```sql
+SELECT department,
+       COUNT(*) AS employee_count
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 5;
+```
+
+#### 6. Departments with Average Salary Above 50,000
+
+```sql
+SELECT department,
+       ROUND(AVG(salary), 2) AS average_salary
+FROM employees
+GROUP BY department
+HAVING AVG(salary) > 50000;
+```
+
+#### 7. Group by Multiple Columns
+
+```sql
+SELECT department,
+       job_title,
+       COUNT(*) AS employee_count
+FROM employees
+GROUP BY department, job_title;
+```
+
+#### 8. Highest Salary by Department
+
+```sql
+SELECT department,
+       MAX(salary) AS highest_salary
+FROM employees
+GROUP BY department;
+```
+
+#### 9. Count Distinct Departments
+
+```sql
+SELECT COUNT(DISTINCT department) AS distinct_departments
+FROM employees;
+```
+
+#### 10. Overall Salary Statistics
+
+```sql
+SELECT COUNT(*) AS employee_count,
+       SUM(salary) AS total_salary,
+       ROUND(AVG(salary), 2) AS average_salary,
+       MAX(salary) AS highest_salary,
+       MIN(salary) AS lowest_salary
+FROM employees;
+```
+
+### Key Learning
+
+This task demonstrates how SQL can be used to transform detailed row-level data into useful summaries. Aggregate functions perform calculations across multiple records, while `GROUP BY` organizes the results into meaningful categories.
+
+`WHERE` is used to filter rows **before** grouping, whereas `HAVING` is used to filter groups **after** aggregation.
+
+### Outcome
+
+* Learned to summarize numerical data using aggregate functions.
+* Practiced grouping records by one or multiple columns.
+* Learned to filter aggregated results using `HAVING`.
+* Practiced identifying maximum, minimum, total, and average values.
+* Learned how to count distinct values and handle `NULL` values with `COUNT()`.
+
+### Interview Questions Covered
+
+1. What is `GROUP BY`?
+2. What is the difference between `WHERE` and `HAVING`?
+3. How does `COUNT(*)` differ from `COUNT(column)`?
+4. Can you group by multiple columns?
+5. What is `ROUND()` used for?
+6. How do you find the highest salary by department?
+7. What is the default behavior of `GROUP BY`?
+8. Explain `AVG()` and `SUM()`.
+9. How do you count distinct values?
+10. What is an aggregate function?
+
+### Files
+
+* `Task_4_Aggregate_Functions_Grouping.sql` — SQL queries for the task
+* `Task_4_Interview_Answers.pdf` — Interview questions and model answers
+
 
 **Author:** Ankita Taneja
