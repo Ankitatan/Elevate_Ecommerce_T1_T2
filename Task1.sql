@@ -1,3 +1,4 @@
+
 /* ================================================================
    TASK 1: DATABASE SETUP AND SCHEMA DESIGN
    ================================================================
@@ -37,7 +38,8 @@ DROP DATABASE IF EXISTS ecommerce_db;
 CREATE DATABASE ecommerce_db;
 
 -- Select the database for use.
-USE ecommerce_db;
+USE tasks_elevate;
+
 
 
 /* ================================================================
